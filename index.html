@@ -31,6 +31,7 @@
   </script>
 
   <style>
+    
     /* Custom DaisyUI theme: Priority Tax Relief */
     [data-theme="ptr"] {
       --color-base-100: #f4f4f4;
@@ -41,10 +42,10 @@
       --color-primary: #047B44;
       --color-primary-content: #ffffff;
 
-      --color-secondary: #78226d;
+      --color-secondary: #325DBE;
       --color-secondary-content: #ffffff;
 
-      --color-accent: #ef3f2b;
+      --color-accent: #FE5000;
       --color-accent-content: #ffffff;
 
       --color-neutral: #1e1e1e;
@@ -94,15 +95,24 @@
     }
 
     .header-cta {
-      color: var(--color-primary);
-      border-color: var(--color-primary);
-      background-color: #ffffff;
-    }
-
-    .header-cta:hover {
       background-color: var(--color-primary) !important;
       color: #ffffff !important;
+      border: 4px solid var(--color-primary) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-cta:hover,
+    .header-cta:focus-visible {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      color: var(--color-primary) !important;
       border-color: var(--color-primary) !important;
+      box-shadow: 0 8px 18px rgba(4, 123, 68, 0.24);
+      transform: translateY(-1px);
+    }
+
+    .header-cta:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(4, 123, 68, 0.18);
     }
 
     .dialog-cta {
@@ -119,15 +129,65 @@
       border-color: var(--color-primary) !important;
     }
 
-    /* Modal field focus state + larger, roomier form controls */
-    .cta-modal {
-      z-index: 9999;
+    .debt-amount-btn {
+      border: 4px solid var(--color-secondary) !important;
+      color: var(--color-secondary) !important;
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     }
 
+    .debt-amount-btn:hover,
+    .debt-amount-btn:focus-visible {
+      color: var(--color-secondary-content) !important;
+      background-color: var(--color-secondary) !important;
+      box-shadow: 0 8px 18px rgba(50, 93, 190, 0.24);
+      transform: translateY(-1px);
+    }
+
+    .debt-amount-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(50, 93, 190, 0.18);
+    }
+
+    /* Modal open/close transition */
+    .cta-modal {
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.02s ease,
+                  display 0.02s allow-discrete,
+                  overlay 0.02s allow-discrete;
+    }
+
+    .cta-modal[open] {
+      opacity: 1;
+    }
+
+    @starting-style {
+      .cta-modal[open] {
+        opacity: 0;
+      }
+    }
+
+    /* Modal field focus state + larger, roomier form controls */
     .cta-modal .modal-box {
       position: relative;
       z-index: 1;
       padding: 2rem;
+      transform: translateY(16px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .cta-modal[open] .modal-box {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @starting-style {
+      .cta-modal[open] .modal-box {
+        transform: translateY(16px);
+        opacity: 0;
+      }
     }
 
     .cta-modal .modal-title {
@@ -152,9 +212,16 @@
       font-size: 1.05rem;
     }
 
+    .cta-modal .select,
+    .cta-modal .input {
+      transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
     .cta-modal .select:focus,
     .cta-modal .input:focus {
       background-color: #dbeafe;
+      border-color: #3b82f6;
+      outline: none;
     }
 
     .cta-modal .modal-backdrop {
@@ -162,8 +229,8 @@
       z-index: 0;
       inset: 0;
       display: block;
-      backdrop-filter: blur(32px) saturate(155%);
-      background-color: rgba(30, 64, 175, 0.8);
+      backdrop-filter: blur(32px);
+      background-color: rgba(30, 64, 175, 0.5);
     }
 
     .cta-modal .modal-backdrop button {
@@ -177,6 +244,8 @@
 
 <body class="min-h-screen bg-base-100 font-sans" style="background-image: url('/img/bg-texture.png'); background-repeat: repeat; background-size: 300px;">
 
+  <div id="wrapper" class="mx-auto w-full max-w-screen-2xl">
+
   <!-- ============================================================ -->
   <!-- HEADER / NAVBAR                                               -->
   <!-- ============================================================ -->
@@ -185,8 +254,9 @@
       <a href="#">
         <img src="/img/PTR-Horz-GreenOnTransparent.svg" alt="Priority Tax Relief" class="h-12" />
       </a>
+      <a href="tel:1-800-TAX-HELP">Call for a Free Financial Review 1-800-TAX-HELP</a>
       <button class="btn btn-outline px-4 py-2 rounded-lg shadow-[0px_4px_10px_0px_rgba(0,0,0,0.40)] border-4 font-bold header-cta"
-              onclick="document.getElementById('cta_modal').showModal()">
+              onclick="openModal('')">
         Estimate My Savings
       </button>
     </div>
@@ -200,56 +270,54 @@
   <!-- ============================================================ -->
   <!-- HERO SECTION                                                  -->
   <!-- ============================================================ -->
-  <section class="relative h-screen">
+  <section class="relative h-screen overflow-visible">
     <!-- Hero Background Image -->
-    <div class="absolute inset-0 z-10 flex items-center justify-center">
-      <img src="/img/ptr-banner-agent.png" alt="" class="w-[70%] h-full object-cover object-top" style="margin-top: -20vh; overflow: visible;" />
+    <div class="absolute inset-0 z-10">
+      <img src="/img/ptr-banner-agent.png" alt="" class="w-full h-full object-cover object-top lg:mt-[-8vh]" />
     </div>
 
     <div class="relative z-20 h-full flex flex-col justify-between px-6 pt-16 pb-8">
       <!-- Split Headline -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-responsive-headline items-start mt-28 max-w-8xl mx-auto w-full">
         <div>
-          <h1 class="font-newsreader text-5xl md:text-7xl leading-tight text-primary font-medium text-right" style="color: var(--color-primary);">
+          <h1 class="font-newsreader text-5xl md:text-5xl leading-tight text-primary font-medium text-right mr-6" style="color: var(--color-primary);">
             Messy Tax<br>Situation?
           </h1>
         </div>
         <div>
-          <h1 class="font-newsreader text-5xl md:text-7xl leading-tight text-primary font-medium italic" style="color: var(--color-primary);">
+          <h1 class="font-newsreader text-5xl md:text-5xl leading-tight text-primary font-medium italic ml-6" style="color: var(--color-primary);">
             That's Our<br>Specialty.
           </h1>
         </div>
       </div>
 
       <!-- CTA Form Card — straddles bottom of hero -->
-      <div class="absolute bottom-0 left-0 right-0 px-6 z-50">
+      <div class="absolute left-0 right-0 px-6 z-50" style="bottom: clamp(1rem, 10vh, 10rem);">
         <div class="max-w-[30rem] mx-auto">
-          <div class="card bg-white shadow-xl rounded-lg">
+          <div class="card bg-white shadow-xl rounded-lg overflow-hidden">
             <div class="card-body p-4 md:p-6">
               <h3 class="text-xl md:text-2xl mb-4">
                 Can you <span class="font-bold">estimate</span> how much you owe the government?
               </h3>
 
-              <select class="select select-bordered w-full text-base md:text-lg border-4 border-gray-400 h-14">
-                <option disabled selected>Select an amount</option>
-                <option>Over $5,000</option>
-                <option>$10,000 - $25,000</option>
-                <option>$25,000 - $50,000</option>
-                <option>Over $50,000</option>
-              </select>
+              <div class="grid grid-cols-4 gap-2">
+                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                        onclick="openModal('Over $5,000')">$5,000</button>
+                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                        onclick="openModal('$10,000 - $25,000')">$15,000</button>
+                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                        onclick="openModal('$25,000 - $50,000')">$30,000</button>
+                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                        onclick="openModal('Over $50,000')">$50,000</button>
+              </div>
             </div>
-
-            <button class="btn dialog-cta w-full rounded-t-none rounded-bl-lg rounded-br-lg text-xl md:text-2xl font-bold py-6 md:py-8 h-auto shadow-[0px_4px_10px_0px_rgba(0,0,0,0.40)]"
-                    style="text-shadow: 0px 1px 0px #003c06;" onclick="document.getElementById('cta_modal').showModal()">
-              Start My Relief
-            </button>
           </div>
         </div>
       </div>
   </section>
 
       <!-- Trust divider Top -->
-      <div class="max-w-7xl mx-auto px-6 z-50" style="margin-top: -6rem;">
+      <div class="max-w-7xl mx-auto px-6 z-50 lg:mt-[-8vh]">
         <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
       </div>
 
@@ -545,18 +613,24 @@
       <div class="space-y-5">
         <div>
           <label class="label py-2"><span class="label-text font-semibold">How much do you owe?</span></label>
-          <select class="select select-bordered w-full border-2">
-            <option disabled selected>Select an amount</option>
-            <option>Over $5,000</option>
-            <option>$10,000 - $25,000</option>
-            <option>$25,000 - $50,000</option>
-            <option>Over $50,000</option>
+          <select id="debt_amount" class="select select-bordered w-full border-2">
+            <option disabled selected value="">Select an amount</option>
+            <option value="Over $5,000">Over $5,000</option>
+            <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+            <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+            <option value="Over $50,000">Over $50,000</option>
           </select>
         </div>
 
-        <div>
-          <label class="label py-2"><span class="label-text font-semibold">Your Name</span></label>
-          <input type="text" placeholder="Full Name" class="input input-bordered w-full border-2" />
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="label py-2"><span class="label-text font-semibold">First Name</span></label>
+            <input type="text" placeholder="First" class="input input-bordered w-full border-2" />
+          </div>
+          <div>
+            <label class="label py-2"><span class="label-text font-semibold">Last Name</span></label>
+            <input type="text" placeholder="Last" class="input input-bordered w-full border-2" />
+          </div>
         </div>
 
         <div>
@@ -571,11 +645,25 @@
           <button class="btn dialog-cta flex-1 text-xl font-bold rounded-lg">Get My Estimate</button>
         </form>
       </div>
+
+      <p class="text-[0.625rem] leading-relaxed text-base-content/40 mt-4">
+        I acknowledge that by clicking &ldquo;Estimate Savings&rdquo; I agree to be contacted by Priority Tax Relief and their affiliates via prerecorded and telemarketing calls and/or SMS/MMS text messages via telephone, mobile device and/or email. By doing so I waive any registration to any state, federal or corporate Do Not Call registry. I understand that calls to me and from me may be recorded for quality assurance purposes. If at any time you wish to opt-out of communication, please reply &ldquo;STOP&rdquo; text &ldquo;HELP&rdquo; for help. I agree to receive approximately 10 messages every month and understand message &amp; data rates may apply. Case results vary and are specific to each applicant qualifications.
+      </p>
     </div>
     <form method="dialog" class="modal-backdrop backdrop-blur-2xl">
       <button aria-label="Close modal">close</button>
     </form>
   </dialog>
+
+  </div>
+
+  <script>
+    function openModal(amount) {
+      const select = document.getElementById('debt_amount');
+      if (select) select.value = amount || '';
+      document.getElementById('cta_modal').showModal();
+    }
+  </script>
 
 </body>
 </html>
