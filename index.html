@@ -8,7 +8,7 @@
   <!-- Google Fonts: Inter + Newsreader -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Newsreader:ital,opsz,wght@0,8..72,400;0,8..72,700;0,8..72,900;1,8..72,400;1,8..72,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Newsreader:ital,opsz,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS v4 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -263,7 +263,7 @@
   </header>
 
   <!-- Header divider -->
-  <div class="max-w-7xl mx-auto px-6 pt-24">
+  <div class="max-w-7xl px-8 mx-auto pt-24">
     <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
   </div>
 
@@ -280,12 +280,12 @@
       <!-- Split Headline -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-responsive-headline items-start mt-28 max-w-8xl mx-auto w-full">
         <div>
-          <h1 class="font-newsreader text-5xl md:text-5xl leading-tight text-primary font-medium text-right mr-6" style="color: var(--color-primary);">
+          <h1 class="font-newsreader text-5xl md:text-5xl leading-tight text-primary font-normal text-right mr-6" style="color: var(--color-primary);">
             Messy Tax<br>Situation?
           </h1>
         </div>
         <div>
-          <h1 class="font-newsreader text-5xl md:text-5xl leading-tight text-primary font-medium italic ml-6" style="color: var(--color-primary);">
+          <h1 class="font-newsreader text-5xl md:text-5xl leading-tight text-primary font-normal italic ml-6" style="color: var(--color-primary);">
             That's Our<br>Specialty.
           </h1>
         </div>
@@ -302,7 +302,7 @@
 
               <div class="grid grid-cols-4 gap-2">
                 <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
-                        onclick="openModal('Over $5,000')">$5,000</button>
+                        onclick="openModal('Over $5,000')">$3,000</button>
                 <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
                         onclick="openModal('$10,000 - $25,000')">$15,000</button>
                 <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
@@ -316,55 +316,61 @@
       </div>
   </section>
 
+
+    <!-- ============================================================ -->
+  <!-- TRUST BADGES SECTION                                          -->
+  <!-- ============================================================ -->
+   <section>
+
       <!-- Trust divider Top -->
-      <div class="max-w-7xl mx-auto px-6 z-50 lg:mt-[-8vh]">
+      <div class="max-w-7xl mx-auto z-50 lg:mt-[-8vh]">
         <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
       </div>
 
 
       <!-- Trust Banner -->
-    <div class="w-full p-8 py-2 relative">
+    <div class="w-full relative">
         <div class="max-w-screen-2xl mx-auto relative">
             <!-- MoneyBack Badge -->
-            <div class="absolute top-[-4.5rem] sm:top-[-4.5rem] md:top-[-5rem] lg:top-[-8rem] xl:top-[-15rem] -right-6 sm:-right-8 md:-right-10 lg:right-10 xl:right-20 z-10 transition-all duration-300">
+            <div class="absolute top-[-4.5rem] sm:top-[-4.5rem] md:top-[-5rem] lg:top-[-8rem] xl:top-[-12rem] -right-6 sm:-right-8 md:-right-10 lg:right-10 xl:right-20 z-10 transition-all duration-300">
                 <a href="https://www.prioritytaxrelief.com/services/money-back-guarantee-policy/" target="_blank" rel="">
-                 <img class="h-24 sm:h-28 md:h-32 lg:h-64 xl:h-80 object-contain rotate-[15deg] transition-all duration-300"
+                 <img class="h-24 sm:h-28 md:h-32 lg:h-64 xl:h-64 object-contain rotate-[15deg] transition-all duration-300"
                    src="/img/promo-moneyback.png"
                      alt="Money Back Guarantee" />
                 </a>
             </div>
 
             <!-- Logos/Ratings Row -->
-            <div class="grid grid-rows-2 grid-cols-2 gap-3 pt-12 md:pt-10 md:grid-rows-1 md:grid-cols-5 md:gap-5 lg:grid-cols-5 max-w-6xl mx-auto">
-              <div class="p-2 pt-4 lg:pt-0 flex flex-col items-center">
+            <div class="grid grid-rows-2 grid-cols-2 gap-3 md:grid-rows-1 md:grid-cols-5 md:gap-5 lg:grid-cols-5 max-w-6xl mx-auto items-center">
+              <div class="p-2 min-h-[7rem] lg:min-h-[8rem] flex flex-col items-center justify-center">
                   <a href="https://maps.app.goo.gl/dCSC9KnDqKfykav78" target="_blank" rel="">
                   <img class="h-[4.5rem] md:h-24 lg:h-28 object-contain"
                     src="/img/promo-google-top-rated.png"
                         alt="Google Top Rated" />
                   </a>
               </div>                 
-              <div class="p-2 pt-4 lg:pt-8 flex flex-col items-center">
+              <div class="p-2 min-h-[7rem] lg:min-h-[8rem] flex flex-col items-center justify-center">
                     <a href="https://www.bbb.org/us/wa/spokane/profile/tax-negotiators/priority-tax-relief-1296-1000178921/#sealclick" target="_blank" rel="">
                     <img class="h-16 md:h-20 lg:h-28 object-contain"
                          src="https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-293-61-bbb-1000178921.png"
                          alt="BBB" />
                     </a>
                 </div>
-                <div class="p-2 pt-4 lg:pt-10 flex flex-col items-center">
+                <div class="p-2 min-h-[7rem] lg:min-h-[8rem] flex flex-col items-center justify-center">
                   <a href="https://www.trustpilot.com/review/prioritytaxrelief.com" target="_blank" rel="">
                   <img class="h-[4.5rem] md:h-24 lg:h-28 object-contain"
                     src="/img/trustpilot.svg"
                      alt="Trustpilot" />
                   </a>
                 </div>                
-                <div class="p-2 pt-4 lg:pt-8 flex flex-col items-center">
+                <div class="p-2 min-h-[7rem] lg:min-h-[8rem] flex flex-col items-center justify-center">
                     <a href="https://www.consumeraffairs.com/finance/priority-tax-relief.html" target="_blank" rel="">
                     <img class="h-[4.5rem] md:h-24 lg:h-28 object-contain"
                       src="/img/promo-consumer-affairs.png"
                          alt="Consumer Affairs" />
                     </a>
                 </div>               
-                <div class="p-2 pt-4 lg:pt-2 flex flex-col items-center invisible lg:visible">
+                <div class="p-2 min-h-[7rem] lg:min-h-[8rem] flex flex-col items-center justify-center invisible lg:visible">
                     <img class="h-0 lg:h-20 object-contain"
                       src="/img/promo-trustlink.png"
                          alt="TrustLink" />
@@ -374,150 +380,77 @@
     </div>
 
       <!-- Trust divider Bottom -->
-      <div class="max-w-7xl mx-auto px-6 z-50">
+      <div class="max-w-7xl mx-auto z-50">
         <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
       </div>    
     
+      </section>
 
   <!-- ============================================================ -->
   <!-- TESTIMONIALS SECTION                                          -->
   <!-- ============================================================ -->
   <section class="py-16 px-6 bg-base-100">
     <div class="max-w-7xl mx-auto">
-      <!-- Intro Text -->
-      <div class="mb-12">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl text-primary">
-          Partner with our top tax professionals and get a free tax consultation to learn your savings potential.
-          If you owe more than $10K in tax debt, our team of CPAs and Tax Attorneys will bring a solution to your tax situation.
-        </h2>
-      </div>
-
-      <!-- Testimonial Cards -->
-      <div class="space-y-8">
-
-        <!-- Testimonial 1 -->
-        <div class="card bg-white shadow-md max-w-4xl">
-          <div class="card-body p-6">
-            <p class="text-lg italic leading-relaxed">
-              "Five Star service! I was so impressed with the service I received from Diego Hernandez. He was kind, patient and very professional. He answered all my questions. A real pleasure!"
-            </p>
-            <div class="rating rating-sm mt-2">
-              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="1 star" />
-              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="2 star" />
-              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="3 star" />
-              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="4 star" />
-              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
-            </div>
-            <div class="flex items-center justify-between text-sm italic opacity-60 mt-2">
-              <span>Sophia Jenkins</span>
-              <span>Jul 07, 2025</span>
-            </div>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+        
+        <!-- Left: Intro Text -->
+        <div>
+          <h2 class="font-newsreader font-light text-3xl md:text-4xl lg:text-5xl leading-tight text-primary">
+            Partner with our top tax professionals and get a free tax consultation to learn your savings potential.
+            If you owe more than $10K in tax debt, our team of CPAs and Tax Attorneys will bring a solution to your tax situation.
+          </h2>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="card bg-white shadow-md max-w-4xl">
-          <div class="card-body p-6">
-            <p class="text-lg italic leading-relaxed">
-              "I owed quite a bit in state taxes and Corey McIntire and the Priority Tax team were able to get the state to agree to a settlement which reduced my debt over 75%!!! Can't thank them enough for their help!"
-            </p>
-            <div class="rating rating-sm mt-2">
-              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="1 star" />
-              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="2 star" />
-              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="3 star" />
-              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="4 star" />
-              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
-            </div>
-            <div class="flex items-center justify-between text-sm italic opacity-60 mt-2">
-              <span>Sophia Jenkins</span>
-              <span>Jul 07, 2025</span>
+        <!-- Right: Testimonial Cards -->
+        <div class="space-y-8">
+
+          <!-- Testimonial 1 -->
+          <div class="card bg-white shadow-md">
+            <div class="card-body p-6">
+              <p class="text-lg italic leading-relaxed">
+                "Five Star service! I was so impressed with the service I received from Diego Hernandez. He was kind, patient and very professional. He answered all my questions. A real pleasure!"
+              </p>
+              <div class="rating rating-sm mt-2">
+                <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="1 star" />
+                <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="2 star" />
+                <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="3 star" />
+                <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="4 star" />
+                <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
+              </div>
+              <div class="flex items-center justify-between text-sm italic opacity-60 mt-2">
+                <span>Sophia Jenkins</span>
+                <span>Jul 07, 2025</span>
+              </div>
             </div>
           </div>
-        </div>
 
+          <!-- Testimonial 2 -->
+          <div class="card bg-white shadow-md">
+            <div class="card-body p-6">
+              <p class="text-lg italic leading-relaxed">
+                "I owed quite a bit in state taxes and Corey McIntire and the Priority Tax team were able to get the state to agree to a settlement which reduced my debt over 75%!!! Can't thank them enough for their help!"
+              </p>
+              <div class="rating rating-sm mt-2">
+                <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="1 star" />
+                <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="2 star" />
+                <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="3 star" />
+                <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="4 star" />
+                <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
+              </div>
+              <div class="flex items-center justify-between text-sm italic opacity-60 mt-2">
+                <span>Sophia Jenkins</span>
+                <span>Jul 07, 2025</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- TRUST BADGES SECTION                                          -->
-  <!-- ============================================================ -->
-  <section class="py-12 px-6 bg-base-100">
-    <div class="max-w-7xl mx-auto">
-      <!-- Top Divider -->
-      <div class="w-full h-px bg-primary mb-8"></div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-
-        <!-- BBB Badge -->
-        <div class="flex justify-center">
-          <div class="text-center p-6">
-            <div class="w-32 h-32 mx-auto rounded-full bg-blue-800 flex items-center justify-center">
-              <div class="text-white text-center">
-                <div class="text-3xl font-black">BBB</div>
-                <div class="text-xs font-semibold mt-1">ACCREDITED<br>BUSINESS</div>
-                <div class="text-xl font-bold mt-1">A+</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Google Rating -->
-        <div class="card bg-white shadow-sm">
-          <div class="card-body items-center text-center p-6">
-            <p class="text-2xl font-bold opacity-60">Top Rated Care</p>
-            <div class="flex items-center gap-6 mt-2">
-              <!-- Google "G" logo -->
-              <svg class="w-16 h-16" viewBox="0 0 48 48">
-                <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
-                <path fill="#34A853" d="M6.3 14.7l7 5.1C15 16.3 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 6.6 6.3 14.7z" style="opacity:0" />
-                <path fill="#FBBC05" d="M24 46c5.4 0 10.2-1.8 14-4.9l-6.9-5.7C29.1 37 26.7 38 24 38c-6 0-11.1-4-12.8-9.5l-7 5.4C7.7 41.4 15.3 46 24 46z" style="opacity:0" />
-                <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.9 3-2.8 5.4-5.5 7.1l6.9 5.7C40.6 38 46 31.8 46 24c0-1.3-.2-2.7-.5-4z" style="opacity:0" />
-              </svg>
-              <div class="text-center">
-                <p class="text-5xl font-extrabold" style="color: #fea500;">4.8</p>
-                <div class="rating rating-md mt-1">
-                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="1 star" />
-                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="2 star" />
-                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="3 star" />
-                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="4 star" />
-                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TrustLink Rating -->
-        <div class="card bg-white shadow-sm">
-          <div class="card-body items-center text-center p-6">
-            <p class="text-xl font-bold text-primary">TrustLink</p>
-            <div class="flex items-center gap-3 mt-2">
-              <p class="text-5xl font-extrabold" style="color: #fea500;">5</p>
-              <div class="rating rating-md">
-                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="1 star" />
-                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="2 star" />
-                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="3 star" />
-                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="4 star" />
-                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Consumer Affairs -->
-      <div class="flex justify-end mt-6">
-        <div class="badge badge-lg badge-outline border-primary text-primary px-4 py-3 text-sm font-semibold">
-          ★ Consumer Affairs — Accredited
-        </div>
-      </div>
-
-      <!-- Bottom Divider -->
-      <div class="w-full h-px bg-primary mt-8"></div>
-    </div>
-  </section>
+  
 
   <!-- ============================================================ -->
   <!-- PROCESS SECTION                                               -->
@@ -615,7 +548,7 @@
           <label class="label py-2"><span class="label-text font-semibold">How much do you owe?</span></label>
           <select id="debt_amount" class="select select-bordered w-full border-2">
             <option disabled selected value="">Select an amount</option>
-            <option value="Over $5,000">Over $5,000</option>
+            <option value="Over $5,000">Less than $5,000</option>
             <option value="$10,000 - $25,000">$10,000 - $25,000</option>
             <option value="$25,000 - $50,000">$25,000 - $50,000</option>
             <option value="Over $50,000">Over $50,000</option>
