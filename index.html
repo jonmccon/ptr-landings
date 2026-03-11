@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ptr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priority Tax Relief — Messy Tax Situation? That's Our Specialty.</title>
+
+  <!-- Google Fonts: Inter + Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Newsreader:ital,opsz,wght@0,8..72,400;0,8..72,700;0,8..72,900;1,8..72,400;1,8..72,700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- DaisyUI v5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/full.css" rel="stylesheet" type="text/css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            newsreader: ['Newsreader', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* Custom DaisyUI theme: Priority Tax Relief */
+    [data-theme="ptr"] {
+      --color-base-100: #f4f4f4;
+      --color-base-200: #e8e8e8;
+      --color-base-300: #d4d4d4;
+      --color-base-content: #1e1e1e;
+
+      --color-primary: #047B44;
+      --color-primary-content: #ffffff;
+
+      --color-secondary: #78226d;
+      --color-secondary-content: #ffffff;
+
+      --color-accent: #ef3f2b;
+      --color-accent-content: #ffffff;
+
+      --color-neutral: #1e1e1e;
+      --color-neutral-content: #f4f4f4;
+
+      --color-info: #bfe1f6;
+      --color-success: #98de96;
+      --color-warning: #fea500;
+      --color-error: #fb8a88;
+
+      --rounded-box: 0.5rem;
+      --rounded-btn: 0.25rem;
+      --rounded-badge: 1.9rem;
+      --animation-btn: 0.25s;
+      --animation-input: 0.2s;
+      --btn-focus-scale: 0.97;
+      --border-btn: 2px;
+      --tab-border: 1px;
+      --tab-radius: 0.5rem;
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Star color override for ratings */
+    .rating input[type="radio"]:checked,
+    .rating input[type="radio"].bg-warning {
+      --tw-bg-opacity: 1;
+      background-color: #fea500;
+    }
+
+    /* Spin animation for money-back badge */
+    @keyframes slow-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-slow-spin {
+      animation: slow-spin 20s linear infinite;
+    }
+    .animate-slow-spin:hover {
+      animation-play-state: paused;
+    }
+
+    /* Responsive headline gap based on viewport width */
+    .gap-responsive-headline {
+      gap: clamp(2rem, 30vw, 60rem);
+    }
+
+    .header-cta {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background-color: #ffffff;
+    }
+
+    .header-cta:hover {
+      background-color: var(--color-primary) !important;
+      color: #ffffff !important;
+      border-color: var(--color-primary) !important;
+    }
+
+    .dialog-cta {
+      background-color: var(--color-primary) !important;
+      color: #ffffff !important;
+      border-color: var(--color-primary) !important;
+      border-width: 0;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.4);
+    }
+
+    .dialog-cta:hover {
+      background-color: var(--color-primary) !important;
+      color: #ffffff !important;
+      border-color: var(--color-primary) !important;
+    }
+
+    /* Modal field focus state + larger, roomier form controls */
+    .cta-modal {
+      z-index: 9999;
+    }
+
+    .cta-modal .modal-box {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .cta-modal .modal-title {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .cta-modal .modal-copy {
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .cta-modal .label-text {
+      font-size: 1rem;
+    }
+
+    .cta-modal .select,
+    .cta-modal .input,
+    .cta-modal .btn {
+      padding: 0.9rem 1rem;
+      min-height: 3.25rem;
+      font-size: 1.05rem;
+    }
+
+    .cta-modal .select:focus,
+    .cta-modal .input:focus {
+      background-color: #dbeafe;
+    }
+
+    .cta-modal .modal-backdrop {
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      display: block;
+      backdrop-filter: blur(32px) saturate(155%);
+      background-color: rgba(30, 64, 175, 0.8);
+    }
+
+    .cta-modal .modal-backdrop button {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-base-100 font-sans" style="background-image: url('/img/bg-texture.png'); background-repeat: repeat; background-size: 300px;">
+
+  <!-- ============================================================ -->
+  <!-- HEADER / NAVBAR                                               -->
+  <!-- ============================================================ -->
+  <header class="absolute top-4 left-0 right-0 z-50 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="#">
+        <img src="/img/PTR-Horz-GreenOnTransparent.svg" alt="Priority Tax Relief" class="h-12" />
+      </a>
+      <button class="btn btn-outline px-4 py-2 rounded-lg shadow-[0px_4px_10px_0px_rgba(0,0,0,0.40)] border-4 font-bold header-cta"
+              onclick="document.getElementById('cta_modal').showModal()">
+        Estimate My Savings
+      </button>
+    </div>
+  </header>
+
+  <!-- Header divider -->
+  <div class="max-w-7xl mx-auto px-6 pt-24">
+    <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION                                                  -->
+  <!-- ============================================================ -->
+  <section class="relative h-screen">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-10 flex items-center justify-center">
+      <img src="/img/ptr-banner-agent.png" alt="" class="w-[70%] h-full object-cover object-top" style="margin-top: -20vh; overflow: visible;" />
+    </div>
+
+    <div class="relative z-20 h-full flex flex-col justify-between px-6 pt-16 pb-8">
+      <!-- Split Headline -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-responsive-headline items-start mt-28 max-w-8xl mx-auto w-full">
+        <div>
+          <h1 class="font-newsreader text-5xl md:text-7xl leading-tight text-primary font-medium text-right" style="color: var(--color-primary);">
+            Messy Tax<br>Situation?
+          </h1>
+        </div>
+        <div>
+          <h1 class="font-newsreader text-5xl md:text-7xl leading-tight text-primary font-medium italic" style="color: var(--color-primary);">
+            That's Our<br>Specialty.
+          </h1>
+        </div>
+      </div>
+
+      <!-- CTA Form Card — straddles bottom of hero -->
+      <div class="absolute bottom-0 left-0 right-0 px-6 z-50">
+        <div class="max-w-[30rem] mx-auto">
+          <div class="card bg-white shadow-xl rounded-lg">
+            <div class="card-body p-4 md:p-6">
+              <h3 class="text-xl md:text-2xl mb-4">
+                Can you <span class="font-bold">estimate</span> how much you owe the government?
+              </h3>
+
+              <select class="select select-bordered w-full text-base md:text-lg border-4 border-gray-400 h-14">
+                <option disabled selected>Select an amount</option>
+                <option>Over $5,000</option>
+                <option>$10,000 - $25,000</option>
+                <option>$25,000 - $50,000</option>
+                <option>Over $50,000</option>
+              </select>
+            </div>
+
+            <button class="btn dialog-cta w-full rounded-t-none rounded-bl-lg rounded-br-lg text-xl md:text-2xl font-bold py-6 md:py-8 h-auto shadow-[0px_4px_10px_0px_rgba(0,0,0,0.40)]"
+                    style="text-shadow: 0px 1px 0px #003c06;" onclick="document.getElementById('cta_modal').showModal()">
+              Start My Relief
+            </button>
+          </div>
+        </div>
+      </div>
+  </section>
+
+      <!-- Trust divider Top -->
+      <div class="max-w-7xl mx-auto px-6 z-50" style="margin-top: -6rem;">
+        <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
+      </div>
+
+
+      <!-- Trust Banner -->
+    <div class="w-full p-8 py-2 relative">
+        <div class="max-w-screen-2xl mx-auto relative">
+            <!-- MoneyBack Badge -->
+            <div class="absolute top-[-4.5rem] sm:top-[-4.5rem] md:top-[-5rem] lg:top-[-8rem] xl:top-[-15rem] -right-6 sm:-right-8 md:-right-10 lg:right-10 xl:right-20 z-10 transition-all duration-300">
+                <a href="https://www.prioritytaxrelief.com/services/money-back-guarantee-policy/" target="_blank" rel="">
+                 <img class="h-24 sm:h-28 md:h-32 lg:h-64 xl:h-80 object-contain rotate-[15deg] transition-all duration-300"
+                   src="/img/promo-moneyback.png"
+                     alt="Money Back Guarantee" />
+                </a>
+            </div>
+
+            <!-- Logos/Ratings Row -->
+            <div class="grid grid-rows-2 grid-cols-2 gap-3 pt-12 md:pt-10 md:grid-rows-1 md:grid-cols-5 md:gap-5 lg:grid-cols-5 max-w-6xl mx-auto">
+              <div class="p-2 pt-4 lg:pt-0 flex flex-col items-center">
+                  <a href="https://maps.app.goo.gl/dCSC9KnDqKfykav78" target="_blank" rel="">
+                  <img class="h-[4.5rem] md:h-24 lg:h-28 object-contain"
+                    src="/img/promo-google-top-rated.png"
+                        alt="Google Top Rated" />
+                  </a>
+              </div>                 
+              <div class="p-2 pt-4 lg:pt-8 flex flex-col items-center">
+                    <a href="https://www.bbb.org/us/wa/spokane/profile/tax-negotiators/priority-tax-relief-1296-1000178921/#sealclick" target="_blank" rel="">
+                    <img class="h-16 md:h-20 lg:h-28 object-contain"
+                         src="https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-293-61-bbb-1000178921.png"
+                         alt="BBB" />
+                    </a>
+                </div>
+                <div class="p-2 pt-4 lg:pt-10 flex flex-col items-center">
+                  <a href="https://www.trustpilot.com/review/prioritytaxrelief.com" target="_blank" rel="">
+                  <img class="h-[4.5rem] md:h-24 lg:h-28 object-contain"
+                    src="/img/trustpilot.svg"
+                     alt="Trustpilot" />
+                  </a>
+                </div>                
+                <div class="p-2 pt-4 lg:pt-8 flex flex-col items-center">
+                    <a href="https://www.consumeraffairs.com/finance/priority-tax-relief.html" target="_blank" rel="">
+                    <img class="h-[4.5rem] md:h-24 lg:h-28 object-contain"
+                      src="/img/promo-consumer-affairs.png"
+                         alt="Consumer Affairs" />
+                    </a>
+                </div>               
+                <div class="p-2 pt-4 lg:pt-2 flex flex-col items-center invisible lg:visible">
+                    <img class="h-0 lg:h-20 object-contain"
+                      src="/img/promo-trustlink.png"
+                         alt="TrustLink" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Trust divider Bottom -->
+      <div class="max-w-7xl mx-auto px-6 z-50">
+        <div class="w-full" style="height: 1px; border-width: thin; border-color: var(--color-primary);"></div>
+      </div>    
+    
+
+  <!-- ============================================================ -->
+  <!-- TESTIMONIALS SECTION                                          -->
+  <!-- ============================================================ -->
+  <section class="py-16 px-6 bg-base-100">
+    <div class="max-w-7xl mx-auto">
+      <!-- Intro Text -->
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight max-w-4xl text-primary">
+          Partner with our top tax professionals and get a free tax consultation to learn your savings potential.
+          If you owe more than $10K in tax debt, our team of CPAs and Tax Attorneys will bring a solution to your tax situation.
+        </h2>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="space-y-8">
+
+        <!-- Testimonial 1 -->
+        <div class="card bg-white shadow-md max-w-4xl">
+          <div class="card-body p-6">
+            <p class="text-lg italic leading-relaxed">
+              "Five Star service! I was so impressed with the service I received from Diego Hernandez. He was kind, patient and very professional. He answered all my questions. A real pleasure!"
+            </p>
+            <div class="rating rating-sm mt-2">
+              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="1 star" />
+              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="2 star" />
+              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="3 star" />
+              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="4 star" />
+              <input type="radio" name="rating-1" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
+            </div>
+            <div class="flex items-center justify-between text-sm italic opacity-60 mt-2">
+              <span>Sophia Jenkins</span>
+              <span>Jul 07, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="card bg-white shadow-md max-w-4xl">
+          <div class="card-body p-6">
+            <p class="text-lg italic leading-relaxed">
+              "I owed quite a bit in state taxes and Corey McIntire and the Priority Tax team were able to get the state to agree to a settlement which reduced my debt over 75%!!! Can't thank them enough for their help!"
+            </p>
+            <div class="rating rating-sm mt-2">
+              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="1 star" />
+              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="2 star" />
+              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="3 star" />
+              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="4 star" />
+              <input type="radio" name="rating-2" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
+            </div>
+            <div class="flex items-center justify-between text-sm italic opacity-60 mt-2">
+              <span>Sophia Jenkins</span>
+              <span>Jul 07, 2025</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TRUST BADGES SECTION                                          -->
+  <!-- ============================================================ -->
+  <section class="py-12 px-6 bg-base-100">
+    <div class="max-w-7xl mx-auto">
+      <!-- Top Divider -->
+      <div class="w-full h-px bg-primary mb-8"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+
+        <!-- BBB Badge -->
+        <div class="flex justify-center">
+          <div class="text-center p-6">
+            <div class="w-32 h-32 mx-auto rounded-full bg-blue-800 flex items-center justify-center">
+              <div class="text-white text-center">
+                <div class="text-3xl font-black">BBB</div>
+                <div class="text-xs font-semibold mt-1">ACCREDITED<br>BUSINESS</div>
+                <div class="text-xl font-bold mt-1">A+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Rating -->
+        <div class="card bg-white shadow-sm">
+          <div class="card-body items-center text-center p-6">
+            <p class="text-2xl font-bold opacity-60">Top Rated Care</p>
+            <div class="flex items-center gap-6 mt-2">
+              <!-- Google "G" logo -->
+              <svg class="w-16 h-16" viewBox="0 0 48 48">
+                <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
+                <path fill="#34A853" d="M6.3 14.7l7 5.1C15 16.3 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 6.6 6.3 14.7z" style="opacity:0" />
+                <path fill="#FBBC05" d="M24 46c5.4 0 10.2-1.8 14-4.9l-6.9-5.7C29.1 37 26.7 38 24 38c-6 0-11.1-4-12.8-9.5l-7 5.4C7.7 41.4 15.3 46 24 46z" style="opacity:0" />
+                <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.9 3-2.8 5.4-5.5 7.1l6.9 5.7C40.6 38 46 31.8 46 24c0-1.3-.2-2.7-.5-4z" style="opacity:0" />
+              </svg>
+              <div class="text-center">
+                <p class="text-5xl font-extrabold" style="color: #fea500;">4.8</p>
+                <div class="rating rating-md mt-1">
+                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="1 star" />
+                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="2 star" />
+                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="3 star" />
+                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="4 star" />
+                  <input type="radio" name="rating-google" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TrustLink Rating -->
+        <div class="card bg-white shadow-sm">
+          <div class="card-body items-center text-center p-6">
+            <p class="text-xl font-bold text-primary">TrustLink</p>
+            <div class="flex items-center gap-3 mt-2">
+              <p class="text-5xl font-extrabold" style="color: #fea500;">5</p>
+              <div class="rating rating-md">
+                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="1 star" />
+                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="2 star" />
+                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="3 star" />
+                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="4 star" />
+                <input type="radio" name="rating-trust" class="mask mask-star-2 bg-warning" aria-label="5 star" checked="checked" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Consumer Affairs -->
+      <div class="flex justify-end mt-6">
+        <div class="badge badge-lg badge-outline border-primary text-primary px-4 py-3 text-sm font-semibold">
+          ★ Consumer Affairs — Accredited
+        </div>
+      </div>
+
+      <!-- Bottom Divider -->
+      <div class="w-full h-px bg-primary mt-8"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PROCESS SECTION                                               -->
+  <!-- ============================================================ -->
+  <section class="bg-white py-16 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- Evaluation -->
+      <div class="space-y-6">
+        <h2 class="text-4xl md:text-5xl font-black">Evaluation</h2>
+        <p class="text-xl md:text-2xl leading-relaxed">
+          Start with a complimentary personalized back taxes consultation through a quick phone call.
+          During this call, we will assess your unique situation, explain your options, and outline a
+          tailored plan to help you manage and reduce your tax debt.
+        </p>
+        <div class="pt-4">
+          <p class="text-lg mb-2">Read More About:</p>
+          <a href="#" class="link link-hover text-lg underline">
+            Understanding Your Financial Situation
+          </a>
+        </div>
+      </div>
+
+      <!-- Solution (faded) -->
+      <div class="space-y-6 relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-base-100/40 to-base-300/30 pointer-events-none rounded-lg"></div>
+        <div class="relative opacity-60">
+          <h2 class="text-4xl md:text-5xl font-black">Solution</h2>
+          <p class="text-xl md:text-2xl leading-relaxed">
+            Promptly engage with the IRS to evaluate your tax situation and devise the optimal plan
+            for your financial future. Our dedicated professionals will work tirelessly to negotiate
+            with the IRS on your behalf, ensuring you receive the best possible outcome and the relief
+            you deserve.
+          </p>
+          <div class="pt-4">
+            <p class="text-lg mb-2">Read More About:</p>
+            <a href="#" class="link link-hover text-lg underline">
+              Implementing Payment Plans
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+    <nav>
+      <h6 class="footer-title">Terms &amp; Conditions</h6>
+      <a class="link link-hover">Privacy Policy</a>
+      <a class="link link-hover">Security Statement</a>
+      <a class="link link-hover">Do Not Sell My Personal Information</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Directory</h6>
+      <a class="link link-hover">DACA FAQ</a>
+      <a class="link link-hover">Forward Looking Statements</a>
+      <a class="link link-hover">Careers</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">FAQ</h6>
+      <a class="link link-hover">Help</a>
+      <a class="link link-hover">Client Education</a>
+      <a class="link link-hover">Tax Relief News</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Review</h6>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">My Tax Account</a>
+      <a class="link link-hover">Request a File Review</a>
+    </nav>
+  </footer>
+
+  <!-- Footer Bottom Bar -->
+  <div class="bg-neutral border-t border-neutral-content/20 px-10 py-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span class="text-neutral-content font-black text-xl tracking-tight">PTR</span>
+      <p class="text-neutral-content/60 text-sm">&copy; 2025 Priority Tax Relief. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: Estimate My Savings                                    -->
+  <!-- ============================================================ -->
+  <dialog id="cta_modal" class="modal modal-bottom sm:modal-middle cta-modal">
+    <div class="modal-box bg-white">
+      <h3 class="modal-title font-bold text-primary mb-5">Estimate Your Savings</h3>
+      <p class="modal-copy mb-7">Tell us about your tax situation and we'll show you how much you could save.</p>
+
+      <div class="space-y-5">
+        <div>
+          <label class="label py-2"><span class="label-text font-semibold">How much do you owe?</span></label>
+          <select class="select select-bordered w-full border-2">
+            <option disabled selected>Select an amount</option>
+            <option>Over $5,000</option>
+            <option>$10,000 - $25,000</option>
+            <option>$25,000 - $50,000</option>
+            <option>Over $50,000</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="label py-2"><span class="label-text font-semibold">Your Name</span></label>
+          <input type="text" placeholder="Full Name" class="input input-bordered w-full border-2" />
+        </div>
+
+        <div>
+          <label class="label py-2"><span class="label-text font-semibold">Phone Number</span></label>
+          <input type="tel" placeholder="(555) 000-0000" class="input input-bordered w-full border-2" />
+        </div>
+      </div>
+
+      <div class="modal-action mt-8">
+        <form method="dialog" class="flex gap-3 w-full">
+          <button class="btn btn-ghost flex-1 rounded-lg">Cancel</button>
+          <button class="btn dialog-cta flex-1 text-xl font-bold rounded-lg">Get My Estimate</button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop backdrop-blur-2xl">
+      <button aria-label="Close modal">close</button>
+    </form>
+  </dialog>
+
+</body>
+</html>
