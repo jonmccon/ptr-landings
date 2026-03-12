@@ -70,24 +70,19 @@
     /* Smooth scrolling */
     html { scroll-behavior: smooth; }
 
-    /* Star color override for ratings */
-    .rating input[type="radio"]:checked,
-    .rating input[type="radio"].bg-warning {
-      --tw-bg-opacity: 1;
-      background-color: #fea500;
+    /*
+    default {
+      cursor: url('/img/cursor-pointer.png'), auto;
     }
 
-    /* Spin animation for money-back badge */
-    @keyframes slow-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    text {
+      cursor: url('path/to/your/image.png'), auto;
     }
-    .animate-slow-spin {
-      animation: slow-spin 20s linear infinite;
+
+    pointer {
+      cursor: url('/img/cursor-pointer.png'), auto;
     }
-    .animate-slow-spin:hover {
-      animation-play-state: paused;
-    }
+    */
 
     /* Responsive headline gap based on viewport width */
     .gap-responsive-headline {
@@ -147,6 +142,15 @@
     .debt-amount-btn:active {
       transform: translateY(0);
       box-shadow: 0 4px 10px rgba(50, 93, 190, 0.18);
+    }
+
+    .inline-cta-link {
+      text-decoration: underline;
+    }
+
+    .inline-cta-link:hover {
+      color: var(--color-primary);
+      background-color: rgba(4, 123, 68, 0.1);
     }
 
     /* Modal open/close transition */
@@ -319,7 +323,7 @@
         <div class="max-w-[30rem] mx-auto">
           <div class="card bg-white shadow-xl rounded-lg overflow-hidden">
             <div class="card-body p-4 md:p-6">
-              <h3 class="text-xl md:text-2xl mb-4">
+              <h3 class="text-xl text-center md:text-2xl mb-4">
                 Can you <span class="font-bold">estimate</span> how much you owe the government?
               </h3>
 
@@ -355,9 +359,9 @@
     <div class="w-full relative">
         <div class="max-w-screen-2xl mx-auto relative">
             <!-- MoneyBack Badge -->
-            <div class="absolute top-[-4.5rem] sm:top-[-4.5rem] md:top-[-5rem] lg:top-[-8rem] xl:top-[-12rem] -right-6 sm:-right-8 md:-right-10 lg:right-10 xl:right-20 z-10 transition-all duration-300">
+            <div class="absolute top-[-4.5rem] sm:top-[-4.5rem] md:top-[-5rem] lg:top-[-8rem] xl:top-[-10rem] -right-6 sm:-right-8 md:-right-10 lg:right-10 xl:right-20 z-10 transition-all duration-300">
                 <a href="https://www.prioritytaxrelief.com/services/money-back-guarantee-policy/" target="_blank" rel="">
-                 <img class="h-24 sm:h-28 md:h-32 lg:h-64 xl:h-64 object-contain rotate-[15deg] transition-all duration-300"
+                 <img class="h-24 sm:h-28 md:h-32 lg:h-64 xl:h-64 object-contain rotate-[0deg] transition-all duration-300"
                    src="/img/promo-moneyback.png"
                      alt="Money Back Guarantee" />
                 </a>
@@ -412,14 +416,14 @@
   <!-- ============================================================ -->
   <!-- TESTIMONIALS SECTION                                          -->
   <!-- ============================================================ -->
-  <section class="py-16 px-6 bg-base-100">
+  <section class="py-32 px-6 bg-base-100">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         
         <!-- Left: Intro Text -->
         <div>
-          <h2 class="font-newsreader font-light text-3xl md:text-4xl lg:text-5xl leading-tight text-primary">
-            Partner with our top tax professionals and get a free tax consultation to learn your savings potential.
+          <h2 class="font-newsreader font-normal text-3xl md:text-4xl lg:text-5xl text-primary">
+            <a class="inline-cta-link" href="#" onclick="openModal('')">Partner with our top tax professionals</a> and get a free tax consultation to learn your savings potential.
             If you owe more than $10K in tax debt, our team of CPAs and Tax Attorneys will bring a solution to your tax situation.
           </h2>
         </div>
@@ -478,46 +482,79 @@
   <!-- ============================================================ -->
   <!-- PROCESS SECTION                                               -->
   <!-- ============================================================ -->
-  <section class="bg-white py-16 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+  <section class="bg-white py-32 px-6">
+    <div class="max-w-7xl mx-auto space-y-16">
+
+      <!-- Introduction -->
+      <div class="grid grid-cols-1 gap-12 items-start">
+        <!-- Left: headline + lead -->
+        <div class="space-y-4 max-w-4xl">
+          <h2 class="text-4xl md:text-5xl font-black leading-tight">You don't have to face the IRS alone.</h2>
+          <p class="text-lg max-w-3xl md:text-2xl leading-relaxed opacity-80">
+            Our experienced team of tax professionals understands the IRS system, procedures, and resolution programs. We act quickly to protect you, evaluate your full financial picture, and determine the most effective path toward resolution.
+          </p>
+        </div>
+   
+
+      <!-- 3-column process steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16">
 
       <!-- Evaluation -->
-      <div class="space-y-6">
-        <h2 class="text-4xl md:text-5xl font-black">Evaluation</h2>
-        <p class="text-xl md:text-2xl leading-relaxed">
-          Start with a complimentary personalized back taxes consultation through a quick phone call.
-          During this call, we will assess your unique situation, explain your options, and outline a
-          tailored plan to help you manage and reduce your tax debt.
-        </p>
+      <div class="flex flex-col justify-between space-y-6">
+        <div class="space-y-6">
+          <h2 class="text-2xl md:text-4xl font-bold">Evaluation</h2>
+          <p class="text-md md:text-lg leading-relaxed">
+            Start with a complimentary personalized back taxes consultation through a quick phone call. 
+            During this call, we will assess your unique situation, explain your options, and outline a 
+            tailored plan to help you manage and reduce your tax debt.
+          </p>
+        </div>
         <div class="pt-4">
-          <p class="text-lg mb-2">Read More About:</p>
-          <a href="#" class="link link-hover text-lg underline">
+          <p class="text-xs mb-1 opacity-60">Read More About:</p>
+          <a href="https://www.prioritytaxrelief.com/services/tax-relief-evaluation/" class="link link-hover text-sm underline">
             Understanding Your Financial Situation
           </a>
         </div>
       </div>
 
-      <!-- Solution (faded) -->
-      <div class="space-y-6 relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-base-100/40 to-base-300/30 pointer-events-none rounded-lg"></div>
-        <div class="relative opacity-60">
-          <h2 class="text-4xl md:text-5xl font-black">Solution</h2>
-          <p class="text-xl md:text-2xl leading-relaxed">
-            Promptly engage with the IRS to evaluate your tax situation and devise the optimal plan
-            for your financial future. Our dedicated professionals will work tirelessly to negotiate
-            with the IRS on your behalf, ensuring you receive the best possible outcome and the relief
-            you deserve.
+      <!-- Solution -->
+      <div class="flex flex-col justify-between space-y-6">
+        <div class="space-y-6">
+          <h2 class="text-2xl md:text-4xl font-bold">Solution</h2>
+          <p class="text-md md:text-lg leading-relaxed">
+            Promptly engage with the IRS to evaluate your tax situation and devise the optimal 
+            plan for your financial future. Our dedicated professionals will work tirelessly to 
+            negotiate with the IRS on your behalf, ensuring you receive the best possible outcome and the relief you deserve.
           </p>
-          <div class="pt-4">
-            <p class="text-lg mb-2">Read More About:</p>
-            <a href="#" class="link link-hover text-lg underline">
-              Implementing Payment Plans
-            </a>
-          </div>
+        </div>
+        <div class="pt-4">
+          <p class="text-xs mb-1 opacity-60">Read More About:</p>
+          <a href="https://www.prioritytaxrelief.com/services/tax-relief-solution/" class="link link-hover text-sm underline">
+            Implementing Payment Plans
+          </a>
         </div>
       </div>
 
-    </div>
+      <!-- Relief -->
+      <div class="flex flex-col justify-between space-y-6">
+        <div class="space-y-6">
+          <h2 class="text-2xl md:text-4xl font-bold">Relief</h2>
+          <p class="text-md md:text-lg leading-relaxed">
+            Our expert tax professionals craft a customized tax strategy to deliver a compliant 
+            and effective resolution. From negotiating with the IRS to implementing a comprehensive 
+            plan that addresses your specific needs, we're here to guide you through the entire process.
+          </p>
+        </div>
+        <div class="pt-4">
+          <p class="text-xs mb-1 opacity-60">Read More About:</p>
+          <a href="https://www.prioritytaxrelief.com/services/step-3-relief/" class="link link-hover text-sm underline">
+            Finding Relief Options
+          </a>
+        </div>
+      </div>
+
+    </div>        
+      </div>
   </section>
 
   <!-- ============================================================ -->
