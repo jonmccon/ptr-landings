@@ -50,6 +50,7 @@
 
       --color-neutral: #1e1e1e;
       --color-neutral-content: #f4f4f4;
+        --color-footer-muted: #b7b7b7;
 
       --color-info: #bfe1f6;
       --color-success: #98de96;
@@ -266,6 +267,18 @@
       --mark-color: 91 233 92;
       --mark-bg-angle: 30deg;
     }
+
+    .footer {
+      background-color: var(--color-base-content) !important;
+    }
+
+      .footer-primary-links {
+        color: var(--color-primary-content);
+      }
+
+      .footer-muted-links {
+        color: var(--color-footer-muted);
+      }
   </style>
 </head>
 
@@ -588,60 +601,58 @@
   <!-- ============================================================ -->
   <!-- FOOTER                                                        -->
   <!-- ============================================================ -->
-  <footer class="bg-base-content text-primary-content">
+  <footer class="bg-base-content text-primary-content footer">
     <div class="max-w-7xl mx-auto px-6 md:px-10 py-32">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[120px_repeat(4,minmax(0,1fr))] gap-10 lg:gap-8 items-start">
-        <div class="pt-1">
+      <div class="grid grid-cols-1 lg:grid-cols-[120px_minmax(0,1fr)] md:gap-10 items-start">
+        <div class="py-10 lg:row-span-2">
           <img src="/img/PTR-icon.svg" alt="Priority Tax Relief" class="h-10 w-10 brightness-0 invert opacity-95" />
         </div>
 
-        <nav class="space-y-5">
-          <div class="md:space-y-1 text-sm md:text-large font-normal text-primary-content">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 items-start">
+          <div class="md:space-y-1 text-sm md:text-normal font-normal footer-primary-links">
             <a href="#" class="block hover:text-white transition-colors">Terms &amp; Conditions</a>
             <a href="#" class="block hover:text-white transition-colors">Privacy Policy</a>
           </div>
-          <ul class="md:space-y-1 text-sm md:text-normal leading-tight text-[#b7b7b7]">
+
+          <div class="md:space-y-1 text-sm md:text-normal font-normal footer-primary-links">
+            <a href="#" class="block hover:text-white transition-colors">Glossary</a>
+            <a href="#" class="block hover:text-white transition-colors">DNC/TCPA</a>
+          </div>
+
+          <div class="md:space-y-1 text-sm md:text-normal font-normal footer-primary-links">
+            <a href="#" class="block hover:text-white transition-colors">FAQ</a>
+            <a href="#" class="block hover:text-white transition-colors">Help</a>
+          </div>
+
+          <div class="md:space-y-1 text-sm md:text-normal font-normal footer-primary-links">
+            <a href="#" class="block hover:text-white transition-colors">Review</a>
+            <a href="#" class="block hover:text-white transition-colors">Contact</a>
+          </div>
+
+          <ul class="md:space-y-1 text-sm md:text-normal leading-tight footer-muted-links">
             <li><a href="#" class="hover:text-white transition-colors">Currently Not Collectible CNC</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Innocent Spouse Relief</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Offer In Compromise</a></li>
           </ul>
-        </nav>
 
-        <nav class="space-y-5">
-          <div class="space-y-1 leading-tight text-normal font-normal text-primary-content">
-            <a href="#" class="block hover:text-white transition-colors">Glossary</a>
-            <a href="#" class="block hover:text-white transition-colors">DNC/TCPA</a>
-          </div>
-          <ul class="space-y-1 text-sm md:text-sm leading-tight text-[#b7b7b7]">
+          <ul class="md:space-y-1 text-sm md:text-normal leading-tight footer-muted-links">
             <li><a href="#" class="hover:text-white transition-colors">Installment Agreement</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Penalty Abatement</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Stop Wage Garnishment</a></li>
           </ul>
-        </nav>
 
-        <nav class="space-y-5">
-          <div class="space-y-1 leading-tight text-normal font-normal text-primary-content">
-            <a href="#" class="block hover:text-white transition-colors">FAQ</a>
-            <a href="#" class="block hover:text-white transition-colors">Help</a>
-          </div>
-          <ul class="space-y-1 text-sm md:text-sm leading-tight text-[#b7b7b7]">
+          <ul class="md:space-y-1 text-sm md:text-normal leading-tight footer-muted-links">
             <li><a href="#" class="hover:text-white transition-colors">Bank Levy Release</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Amended Tax Returns</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Bookkeeping</a></li>
           </ul>
-        </nav>
 
-        <nav class="space-y-5">
-          <div class="space-y-1 leading-tight text-normal font-normal text-primary-content">
-            <a href="#" class="block hover:text-white transition-colors">Review</a>
-            <a href="#" class="block hover:text-white transition-colors">Contact</a>
-          </div>
-          <ul class="space-y-1 text-sm md:text-[0.95rem] leading-tight text-[#b7b7b7]">
+          <ul class="md:space-y-1 text-sm md:text-normal leading-tight footer-muted-links">
             <li><a href="#" class="hover:text-white transition-colors">IRS Back Tax Full Pay Service</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Revenue Officer Representation</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Tax Planning</a></li>
           </ul>
-        </nav>
+        </div>
       </div>
     </div>
   </footer>
@@ -690,7 +701,7 @@
         </form>
       </div>
 
-      <p class="text-[0.625rem] leading-relaxed text-base-content/40 mt-4">
+      <p class="text-xs leading-relaxed text-base-content/40 mt-4">
         I acknowledge that by clicking &ldquo;Estimate Savings&rdquo; I agree to be contacted by Priority Tax Relief and their affiliates via prerecorded and telemarketing calls and/or SMS/MMS text messages via telephone, mobile device and/or email. By doing so I waive any registration to any state, federal or corporate Do Not Call registry. I understand that calls to me and from me may be recorded for quality assurance purposes. If at any time you wish to opt-out of communication, please reply &ldquo;STOP&rdquo; text &ldquo;HELP&rdquo; for help. I agree to receive approximately 10 messages every month and understand message &amp; data rates may apply. Case results vary and are specific to each applicant qualifications.
       </p>
     </div>
