@@ -328,15 +328,15 @@
   <!-- ============================================================ -->
   <!-- HERO SECTION                                                  -->
   <!-- ============================================================ -->
-  <section class="relative min-h-screen overflow-visible">
+  <section class="relative lg:min-h-screen overflow-visible">
     <!-- Hero Background Image -->
-    <div class="absolute inset-0 z-10">
-      <img src="img/ptr-banner-agent.png" alt="" class="w-full h-full object-cover object-top lg:mt-[-8vh]" />
+    <div class="relative lg:absolute lg:inset-0 z-10">
+      <img src="img/ptr-banner-agent.png" alt="" class="w-full h-auto lg:h-full object-cover object-top lg:mt-[-8vh]" />
     </div>
 
-    <div class="relative z-20 h-full flex flex-col justify-between px-6 pt-16 pb-8">
+    <div class="relative z-20 px-6 pt-8 lg:pt-16 -mt-20 lg:mt-0">
       <!-- Split Headline -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-responsive-headline items-start mt-28 max-w-8xl mx-auto w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-[30vw] items-start mt-0 lg:mt-28 max-w-8xl mx-auto w-full">
         <div>
           <h1 class="font-newsreader text-4xl md:text-5xl lg:text-6xl leading-tight text-primary font-normal text-center lg:text-right mr-0 lg:mr-6" style="color: var(--color-primary);">
             Messy Tax<br>Situation?
@@ -348,26 +348,26 @@
           </h1>
         </div>
       </div>
+    </div>
 
-      <!-- CTA Form Card — straddles bottom of hero -->
-      <div class="absolute left-0 right-0 px-6 z-50" style="bottom: clamp(1rem, 10vh, 10rem);">
-        <div class="max-w-[30rem] mx-auto">
-          <div class="card bg-white shadow-xl rounded-lg overflow-hidden">
-            <div class="card-body p-4 md:p-6">
-              <h3 class="text-xl text-center md:text-2xl mb-4">
-                Can you <span class="font-bold">estimate</span> how much you owe the government?
-              </h3>
+    <!-- CTA Form Card -->
+    <div class="relative lg:absolute lg:bottom-20 left-0 right-0 px-6 z-50 py-6 lg:py-0">
+      <div class="max-w-[30rem] mx-auto">
+        <div class="card bg-white shadow-xl rounded-lg overflow-hidden">
+          <div class="card-body p-4 md:p-6">
+            <h3 class="text-xl text-center md:text-2xl mb-4">
+              Can you <span class="font-bold">estimate</span> how much you owe the government?
+            </h3>
 
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
-                        onclick="openModal('Over $5,000')">$3,000</button>
-                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
-                        onclick="openModal('$10,000 - $25,000')">$15,000</button>
-                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
-                        onclick="openModal('$25,000 - $50,000')">$30,000</button>
-                <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
-                        onclick="openModal('Over $50,000')">$50,000</button>
-              </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                      onclick="openModal('Over $5,000')">$3,000</button>
+              <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                      onclick="openModal('$10,000 - $25,000')">$15,000</button>
+              <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                      onclick="openModal('$25,000 - $50,000')">$30,000</button>
+              <button class="btn btn-outline rounded-lg font-semibold h-auto py-3 text-sm debt-amount-btn"
+                      onclick="openModal('Over $50,000')">$50,000</button>
             </div>
           </div>
         </div>
